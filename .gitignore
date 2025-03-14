@@ -33,6 +33,9 @@ develop-eggs/
 downloads/
 eggs/
 .eggs/
+# Allow frontend/app/lib directory
+!/frontend/app/lib/
+# Ignore other lib directories
 lib/
 lib64/
 parts/

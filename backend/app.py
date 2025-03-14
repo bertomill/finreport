@@ -30,6 +30,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Health check endpoint for Railway
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 # Define request and response models
 class QuestionRequest(BaseModel):
     question: str
@@ -153,17 +158,13 @@ async def get_user_documents(user_id: str):
 
 # Run the server if executed as a script
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 5001))
+    port = int(os.getenv("PORT", 10000))
     host = os.getenv("HOST", "0.0.0.0")
     
-    if os.getenv("ENVIRONMENT") == "production":
-        # Let gunicorn handle this
-        pass
-    else:
-        # Development mode
-        uvicorn.run(
-            "app:app",
-            host=host,
-            port=port,
-            reload=True
-        ) 
+    # Development mode - this should run when you execute app.py directly
+    uvicorn.run(
+        "app:app",
+        host=host,
+        port=port,
+        reload=True
+    ) 

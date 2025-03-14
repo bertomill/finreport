@@ -1,0 +1,22 @@
+services:
+  - name: finreports-backend
+    type: web
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -c gunicorn_config.py app:app
+    healthCheckPath: /
+    # This explicitly configures the port Render should listen on
+    port: 5001
+    envVars:
+      - key: PORT
+        value: 5001
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENVIRONMENT
+        value: us-east-1-gcp
+      - key: PINECONE_INDEX_NAME
+        value: finreports
+      - key: ENVIRONMENT
+        value: production 

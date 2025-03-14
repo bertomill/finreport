@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+
+# Testing
+coverage
+
+# Next.js build output
+.next
+out
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env*
+!.env.example
+!.env.local.example
+
+# TypeScript incremental builds
+*.tsbuildinfo 

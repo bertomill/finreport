@@ -5,6 +5,10 @@
 .env.test.local
 .env.production.local
 
+# Allow example environment files
+!.env.example
+!.env.local.example
+
 # Dependencies
 node_modules/
 .pnp/

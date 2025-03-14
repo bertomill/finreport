@@ -1,0 +1,17 @@
+services:
+  - name: finreports-backend
+    type: web
+    env: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn -c gunicorn_config.py app:app
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PINECONE_API_KEY
+        sync: false
+      - key: PINECONE_ENVIRONMENT
+        value: us-east-1-gcp
+      - key: PINECONE_INDEX_NAME
+        value: finreports 

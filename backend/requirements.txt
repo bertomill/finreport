@@ -1,0 +1,13 @@
+langchain>=0.0.335
+langchain-core>=0.1.17
+langchain-openai>=0.0.2
+langchain-text-splitters>=0.0.1
+langchain-community>=0.0.13
+pinecone>=2.2.4
+PyPDF2>=3.0.1
+python-dotenv>=1.0.0
+fastapi>=0.109.0
+uvicorn>=0.25.0
+python-multipart>=0.0.6
+openai>=1.6.1
+tiktoken>=0.5.2 

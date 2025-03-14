@@ -4,6 +4,9 @@ services:
     env: python
     buildCommand: pip install -r backend/requirements.txt
     startCommand: cd backend && gunicorn -c gunicorn_config.py app:app
+    healthCheckPath: /
+    # This explicitly configures the port Render should listen on
+    port: 10000
     envVars:
       - key: PORT
         value: 10000
